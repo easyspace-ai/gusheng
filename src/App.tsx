@@ -1,5 +1,5 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
-import { Layout } from './components/Layout/Layout'
+import { ProLayout } from './components/Layout/ProLayout'
 import { CommandPalette } from './components/CommandPalette/CommandPalette'
 import { ContextMenuProvider } from './components/ContextMenu/ContextMenuProvider'
 import { PluginSystemProvider } from './components/Plugins/PluginSystemIntegration'
@@ -13,8 +13,8 @@ function App() {
             <Route
               path="*"
               element={
-                <div className="w-full h-full bg-background text-foreground overflow-hidden">
-                  <Layout />
+                <div className="w-full h-full overflow-hidden pro-selection">
+                  <ProLayout />
                   <CommandPalette />
                 </div>
               }

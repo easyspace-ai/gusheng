@@ -4,9 +4,7 @@ import { SidebarLeft } from "@/components/layout/SidebarLeft";
 import { SidebarRight } from "@/components/layout/SidebarRight";
 import { DashboardMetrics, TradeDistribution } from "@/components/dashboard/DashboardMetrics";
 import { MainChart } from "@/components/dashboard/MainChart";
-import { StrategySidebarLeft } from "@/components/strategy/StrategySidebarLeft";
-import { StrategySidebarRight } from "@/components/strategy/StrategySidebarRight";
-import { StrategyEditor } from "@/components/strategy/StrategyEditor";
+import { StrategyRouteLayout } from "@/features/strategy/StrategyRouteLayout";
 import { ScreenerSidebarLeft } from "@/components/screener/ScreenerSidebarLeft";
 import { ScreenerSidebarRight } from "@/components/screener/ScreenerSidebarRight";
 import { StockScreener } from "@/components/screener/StockScreener";
@@ -23,16 +21,23 @@ type Props = {
 /** 未从 src 迁移的域：沿用 web 三栏演示布局（不含「数据」域） */
 export function PlaceholderWorkbench({ tab }: Props) {
   const { leftCollapsed, rightCollapsed } = useWorkbenchChrome();
+
+  if (tab === "strategy") {
+    return (
+      <main className="flex min-h-0 flex-1 flex-col overflow-hidden">
+        <StrategyRouteLayout />
+      </main>
+    );
+  }
+
   return (
-    <main className="flex-1 flex overflow-hidden min-h-0">
+    <main className="flex min-h-0 flex-1 overflow-hidden">
       <ResizablePanel
         side="left"
-        defaultWidth={tab === "strategy" || tab === "filter" || tab === "backtest" ? 240 : 280}
+        defaultWidth={tab === "filter" || tab === "backtest" ? 240 : 280}
         isCollapsed={leftCollapsed}
       >
-        {tab === "strategy" ? (
-          <StrategySidebarLeft />
-        ) : tab === "filter" ? (
+        {tab === "filter" ? (
           <ScreenerSidebarLeft />
         ) : tab === "backtest" ? (
           <BacktestSidebarLeft />
@@ -41,10 +46,8 @@ export function PlaceholderWorkbench({ tab }: Props) {
         )}
       </ResizablePanel>
 
-      <div className="flex-1 flex flex-col overflow-hidden bg-slate-50 dark:bg-slate-950 min-w-0">
-        {tab === "strategy" ? (
-          <StrategyEditor />
-        ) : tab === "filter" ? (
+      <div className="flex min-w-0 flex-1 flex-col overflow-hidden bg-slate-50 dark:bg-slate-950">
+        {tab === "filter" ? (
           <StockScreener />
         ) : tab === "backtest" ? (
           <BacktestPage />
@@ -60,9 +63,7 @@ export function PlaceholderWorkbench({ tab }: Props) {
       </div>
 
       <ResizablePanel side="right" defaultWidth={320} isCollapsed={rightCollapsed}>
-        {tab === "strategy" ? (
-          <StrategySidebarRight />
-        ) : tab === "filter" ? (
+        {tab === "filter" ? (
           <ScreenerSidebarRight />
         ) : tab === "backtest" ? (
           <BacktestSidebarRight />

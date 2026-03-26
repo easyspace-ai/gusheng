@@ -1,7 +1,7 @@
 import * as React from "react";
 import { Navigate, Route, Routes, useLocation, useNavigate } from "react-router-dom";
-import { ActivityBar } from "./components/layout/ActivityBar";
-import { TopNav } from "./components/layout/TopNav";
+import { SaasSidebar } from "./components/layout/SaasSidebar";
+import { SaasTopBar } from "./components/layout/SaasTopBar";
 import { WorkbenchChromeProvider } from "./components/layout/WorkbenchChromeContext";
 import { LoginPage } from "./components/auth/LoginPage";
 import { RegisterPage } from "./components/auth/RegisterPage";
@@ -85,6 +85,7 @@ function RequireAuth({ children }: { children: React.ReactNode }) {
 function AppShell() {
   const [leftCollapsed, setLeftCollapsed] = React.useState(false);
   const [rightCollapsed, setRightCollapsed] = React.useState(false);
+  const [sidebarCollapsed, setSidebarCollapsed] = React.useState(false);
   const { logout } = useAuth();
   const navigate = useNavigate();
 
@@ -103,14 +104,27 @@ function AppShell() {
     [leftCollapsed, rightCollapsed],
   );
 
+  const sidebarWidth = sidebarCollapsed ? "72px" : "260px";
+
   return (
     <WorkbenchChromeProvider value={chrome}>
-      <div className="flex h-screen w-full bg-slate-50 dark:bg-slate-950 overflow-hidden font-sans selection:bg-slate-200 dark:selection:bg-slate-800">
-        <ActivityBar onLogout={handleLogout} />
+      <div className="flex h-screen w-full bg-gray-50 dark:bg-gray-950 overflow-hidden font-sans selection:bg-blue-100 dark:selection:bg-blue-900/50">
+        {/* 专业侧边栏 */}
+        <SaasSidebar
+          onLogout={handleLogout}
+          collapsed={sidebarCollapsed}
+          onToggleCollapse={() => setSidebarCollapsed((c) => !c)}
+        />
 
-        <div className="flex-1 flex flex-col ml-20 overflow-hidden min-w-0">
-          <TopNav />
+        {/* 主内容区域 */}
+        <div
+          className="flex-1 flex flex-col overflow-hidden min-w-0 transition-all duration-300 ease-[cubic-bezier(0.4,0,0.2,1)]"
+          style={{ marginLeft: sidebarWidth }}
+        >
+          {/* 专业顶部栏 */}
+          <SaasTopBar />
 
+          {/* 内容区域 */}
           <div className="flex-1 flex flex-col min-h-0 overflow-hidden">
             <Routes>
               <Route path="/" element={<Navigate to="/analysis" replace />} />

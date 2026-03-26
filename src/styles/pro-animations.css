@@ -1,0 +1,350 @@
+/**
+ * ReNote Pro - 专业动画系统
+ */
+
+@layer base {
+  /* === 基础动画关键帧 === */
+
+  /* 淡入淡出 */
+  @keyframes pro-fade-in {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+
+  @keyframes pro-fade-out {
+    from { opacity: 1; }
+    to { opacity: 0; }
+  }
+
+  /* 滑入滑出 */
+  @keyframes pro-slide-up {
+    from { transform: translateY(16px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+  }
+
+  @keyframes pro-slide-down {
+    from { transform: translateY(-16px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+  }
+
+  @keyframes pro-slide-left {
+    from { transform: translateX(16px); opacity: 0; }
+    to { transform: translateX(0); opacity: 1; }
+  }
+
+  @keyframes pro-slide-right {
+    from { transform: translateX(-16px); opacity: 0; }
+    to { transform: translateX(0); opacity: 1; }
+  }
+
+  /* 缩放动画 */
+  @keyframes pro-scale-in {
+    from { transform: scale(0.95); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+  }
+
+  @keyframes pro-scale-out {
+    from { transform: scale(1); opacity: 1; }
+    to { transform: scale(0.95); opacity: 0; }
+  }
+
+  /* 弹性动画 */
+  @keyframes pro-bounce-in {
+    0% { transform: scale(0.3); opacity: 0; }
+    50% { transform: scale(1.05); }
+    70% { transform: scale(0.9); }
+    100% { transform: scale(1); opacity: 1; }
+  }
+
+  /* 背景渐变动画 */
+  @keyframes pro-gradient-shift {
+    0%, 100% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+  }
+
+  /* 脉冲动画 */
+  @keyframes pro-pulse-soft {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.6; }
+  }
+
+  @keyframes pro-pulse-glow {
+    0%, 100% {
+      box-shadow: 0 0 0 0 rgba(245, 158, 11, 0.4);
+    }
+    50% {
+      box-shadow: 0 0 0 12px rgba(245, 158, 11, 0);
+    }
+  }
+
+  /* 闪烁动画 */
+  @keyframes pro-shimmer {
+    0% { background-position: -200% 0; }
+    100% { background-position: 200% 0; }
+  }
+
+  /* 旋转动画 */
+  @keyframes pro-spin-slow {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+  }
+
+  /* 浮动动画 */
+  @keyframes pro-float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-8px); }
+  }
+
+  @keyframes pro-float-slow {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-12px); }
+  }
+
+  /* 呼吸动画 */
+  @keyframes pro-breathe {
+    0%, 100% {
+      transform: scale(1);
+      opacity: 1;
+    }
+    50% {
+      transform: scale(1.02);
+      opacity: 0.9;
+    }
+  }
+
+  /* 波纹动画 */
+  @keyframes pro-ripple {
+    0% {
+      transform: scale(0);
+      opacity: 1;
+    }
+    100% {
+      transform: scale(4);
+      opacity: 0;
+    }
+  }
+
+  /* 打字动画 */
+  @keyframes pro-typewriter {
+    from { width: 0; }
+    to { width: 100%; }
+  }
+
+  @keyframes pro-blink-caret {
+    0%, 100% { border-color: transparent; }
+    50% { border-color: var(--pro-accent-amber); }
+  }
+}
+
+@layer utilities {
+  /* === 动画实用类 === */
+
+  /* 淡入淡出 */
+  .pro-animate-fade-in {
+    animation: pro-fade-in var(--pro-duration-normal) var(--pro-ease-default) both;
+  }
+
+  .pro-animate-fade-out {
+    animation: pro-fade-out var(--pro-duration-normal) var(--pro-ease-default) both;
+  }
+
+  /* 滑动 */
+  .pro-animate-slide-up {
+    animation: pro-slide-up var(--pro-duration-normal) var(--pro-ease-out) both;
+  }
+
+  .pro-animate-slide-down {
+    animation: pro-slide-down var(--pro-duration-normal) var(--pro-ease-out) both;
+  }
+
+  .pro-animate-slide-left {
+    animation: pro-slide-left var(--pro-duration-normal) var(--pro-ease-out) both;
+  }
+
+  .pro-animate-slide-right {
+    animation: pro-slide-right var(--pro-duration-normal) var(--pro-ease-out) both;
+  }
+
+  /* 缩放 */
+  .pro-animate-scale-in {
+    animation: pro-scale-in var(--pro-duration-normal) var(--pro-ease-out) both;
+  }
+
+  .pro-animate-scale-out {
+    animation: pro-scale-out var(--pro-duration-normal) var(--pro-ease-in) both;
+  }
+
+  /* 弹性 */
+  .pro-animate-bounce-in {
+    animation: pro-bounce-in var(--pro-duration-slower) var(--pro-ease-elastic) both;
+  }
+
+  /* 渐变 */
+  .pro-animate-gradient {
+    background-size: 200% 200%;
+    animation: pro-gradient-shift 8s ease infinite;
+  }
+
+  /* 脉冲 */
+  .pro-animate-pulse {
+    animation: pro-pulse-soft 2s ease-in-out infinite;
+  }
+
+  .pro-animate-pulse-glow {
+    animation: pro-pulse-glow 2s ease-in-out infinite;
+  }
+
+  /* 闪烁 */
+  .pro-animate-shimmer {
+    background: linear-gradient(
+      90deg,
+      transparent 0%,
+      rgba(255, 255, 255, 0.1) 50%,
+      transparent 100%
+    );
+    background-size: 200% 100%;
+    animation: pro-shimmer 2s ease-in-out infinite;
+  }
+
+  /* 旋转 */
+  .pro-animate-spin {
+    animation: pro-spin-slow 1s linear infinite;
+  }
+
+  .pro-animate-spin-slow {
+    animation: pro-spin-slow 3s linear infinite;
+  }
+
+  /* 浮动 */
+  .pro-animate-float {
+    animation: pro-float 4s ease-in-out infinite;
+  }
+
+  .pro-animate-float-slow {
+    animation: pro-float-slow 6s ease-in-out infinite;
+  }
+
+  /* 呼吸 */
+  .pro-animate-breathe {
+    animation: pro-breathe 4s ease-in-out infinite;
+  }
+
+  /* === 动画延迟 === */
+  .pro-delay-75 { animation-delay: 75ms; }
+  .pro-delay-100 { animation-delay: 100ms; }
+  .pro-delay-150 { animation-delay: 150ms; }
+  .pro-delay-200 { animation-delay: 200ms; }
+  .pro-delay-300 { animation-delay: 300ms; }
+  .pro-delay-500 { animation-delay: 500ms; }
+  .pro-delay-700 { animation-delay: 700ms; }
+  .pro-delay-1000 { animation-delay: 1000ms; }
+
+  /* === 动画持续时间 === */
+  .pro-duration-fast { animation-duration: var(--pro-duration-fast); }
+  .pro-duration-normal { animation-duration: var(--pro-duration-normal); }
+  .pro-duration-slow { animation-duration: var(--pro-duration-slow); }
+  .pro-duration-slower { animation-duration: var(--pro-duration-slower); }
+
+  /* === 动画缓动 === */
+  .pro-ease-default { animation-timing-function: var(--pro-ease-default); }
+  .pro-ease-in { animation-timing-function: var(--pro-ease-in); }
+  .pro-ease-out { animation-timing-function: var(--pro-ease-out); }
+  .pro-ease-bounce { animation-timing-function: var(--pro-ease-bounce); }
+  .pro-ease-elastic { animation-timing-function: var(--pro-ease-elastic); }
+
+  /* === 动画填充模式 === */
+  .pro-fill-none { animation-fill-mode: none; }
+  .pro-fill-forwards { animation-fill-mode: forwards; }
+  .pro-fill-backwards { animation-fill-mode: backwards; }
+  .pro-fill-both { animation-fill-mode: both; }
+
+  /* === 动画迭代次数 === */
+  .pro-iterate-1 { animation-iteration-count: 1; }
+  .pro-iterate-infinite { animation-iteration-count: infinite; }
+
+  /* === 暂停动画 === */
+  .pro-pause { animation-play-state: paused; }
+  .pro-running { animation-play-state: running; }
+}
+
+@layer components {
+  /* === 组件级动画 === */
+
+  /* 悬停提升效果 */
+  .pro-hover-lift {
+    transition: transform var(--pro-duration-fast) var(--pro-ease-default),
+                box-shadow var(--pro-duration-fast) var(--pro-ease-default);
+  }
+
+  .pro-hover-lift:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--pro-shadow-lg);
+  }
+
+  /* 悬停缩放效果 */
+  .pro-hover-scale {
+    transition: transform var(--pro-duration-fast) var(--pro-ease-default);
+  }
+
+  .pro-hover-scale:hover {
+    transform: scale(1.02);
+  }
+
+  /* 背景淡入 */
+  .pro-hover-bg {
+    transition: background-color var(--pro-duration-fast) var(--pro-ease-default);
+  }
+
+  /* 边框发光 */
+  .pro-hover-glow {
+    transition: box-shadow var(--pro-duration-fast) var(--pro-ease-default),
+                border-color var(--pro-duration-fast) var(--pro-ease-default);
+  }
+
+  .pro-hover-glow:hover {
+    box-shadow: 0 0 0 4px var(--pro-accent-amber-bg),
+                var(--pro-shadow-md);
+    border-color: var(--pro-accent-amber);
+  }
+
+  /* 文字渐变 */
+  .pro-hover-text-gradient {
+    background-size: 200% 100%;
+    background-position: 100% 0;
+    transition: background-position var(--pro-duration-slow) var(--pro-ease-default);
+  }
+
+  .pro-hover-text-gradient:hover {
+    background-position: 0 0;
+  }
+
+  /* 进入动画组 - 错开显示 */
+  .pro-stagger-children > * {
+    opacity: 0;
+    animation: pro-slide-up var(--pro-duration-normal) var(--pro-ease-out) both;
+  }
+
+  .pro-stagger-children > *:nth-child(1) { animation-delay: 50ms; }
+  .pro-stagger-children > *:nth-child(2) { animation-delay: 100ms; }
+  .pro-stagger-children > *:nth-child(3) { animation-delay: 150ms; }
+  .pro-stagger-children > *:nth-child(4) { animation-delay: 200ms; }
+  .pro-stagger-children > *:nth-child(5) { animation-delay: 250ms; }
+  .pro-stagger-children > *:nth-child(6) { animation-delay: 300ms; }
+  .pro-stagger-children > *:nth-child(7) { animation-delay: 350ms; }
+  .pro-stagger-children > *:nth-child(8) { animation-delay: 400ms; }
+
+  /* 波纹效果容器 */
+  .pro-ripple-container {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .pro-ripple {
+    position: absolute;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.3);
+    transform: scale(0);
+    animation: pro-ripple 0.6s linear;
+    pointer-events: none;
+  }
+}

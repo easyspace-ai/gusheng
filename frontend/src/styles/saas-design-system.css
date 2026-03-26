@@ -1,0 +1,525 @@
+/**
+ * Quantum Pro - Professional SaaS Design System
+ * 专业金融量化平台设计系统
+ */
+
+@layer base {
+  :root {
+    /* === Primary Brand Colors === */
+    /* Deep Space Blue - Trust, Stability, Professional */
+    --brand-primary: #2563eb;
+    --brand-primary-light: #3b82f6;
+    --brand-primary-dark: #1d4ed8;
+    --brand-primary-50: #eff6ff;
+    --brand-primary-100: #dbeafe;
+    --brand-primary-500: #3b82f6;
+    --brand-primary-600: #2563eb;
+    --brand-primary-700: #1d4ed8;
+
+    /* Accent Gold - Premium, Financial */
+    --brand-accent: #f59e0b;
+    --brand-accent-light: #fbbf24;
+    --brand-accent-dark: #d97706;
+    --brand-accent-50: #fffbeb;
+    --brand-accent-500: #f59e0b;
+
+    /* Success Green - Positive, Growth */
+    --status-success: #10b981;
+    --status-success-light: #34d399;
+    --status-success-bg: rgba(16, 185, 129, 0.1);
+
+    /* Danger Red - Risk, Negative */
+    --status-danger: #ef4444;
+    --status-danger-light: #f87171;
+    --status-danger-bg: rgba(239, 68, 68, 0.1);
+
+    /* Warning Amber */
+    --status-warning: #f59e0b;
+    --status-warning-bg: rgba(245, 158, 11, 0.1);
+
+    /* === Neutral Color Palette === */
+    --gray-50: #f9fafb;
+    --gray-100: #f3f4f6;
+    --gray-200: #e5e7eb;
+    --gray-300: #d1d5db;
+    --gray-400: #9ca3af;
+    --gray-500: #6b7280;
+    --gray-600: #4b5563;
+    --gray-700: #374151;
+    --gray-800: #1f2937;
+    --gray-900: #111827;
+    --gray-950: #030712;
+
+    /* === Semantic Backgrounds === */
+    --bg-primary: #ffffff;
+    --bg-secondary: #f9fafb;
+    --bg-tertiary: #f3f4f6;
+    --bg-elevated: #ffffff;
+    --bg-hover: rgba(17, 24, 39, 0.04);
+    --bg-active: rgba(17, 24, 39, 0.06);
+
+    /* Glassmorphism */
+    --bg-glass: rgba(255, 255, 255, 0.8);
+    --bg-glass-strong: rgba(255, 255, 255, 0.92);
+
+    /* === Semantic Foregrounds === */
+    --fg-primary: #111827;
+    --fg-secondary: #4b5563;
+    --fg-muted: #6b7280;
+    --fg-subtle: #9ca3af;
+    --fg-on-primary: #ffffff;
+
+    /* === Borders === */
+    --border-subtle: rgba(17, 24, 39, 0.06);
+    --border-default: rgba(17, 24, 39, 0.12);
+    --border-strong: rgba(17, 24, 39, 0.2);
+
+    /* === Shadows - Professional Depth System === */
+    --shadow-xs: 0 1px 2px 0 rgba(0, 0, 0, 0.02);
+    --shadow-sm: 0 1px 3px 0 rgba(0, 0, 0, 0.06), 0 1px 2px -1px rgba(0, 0, 0, 0.06);
+    --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.06), 0 2px 4px -2px rgba(0, 0, 0, 0.06);
+    --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.06), 0 4px 6px -4px rgba(0, 0, 0, 0.06);
+    --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.06), 0 8px 10px -6px rgba(0, 0, 0, 0.06);
+    --shadow-2xl: 0 25px 50px -12px rgba(0, 0, 0, 0.12);
+
+    /* Brand Glow */
+    --shadow-glow-primary: 0 0 40px rgba(37, 99, 235, 0.15);
+    --shadow-glow-accent: 0 0 40px rgba(245, 158, 11, 0.15);
+
+    /* === Typography - Professional SaaS === */
+    /* Using Inter for body - highly readable, modern sans-serif */
+    /* Using Manrope for display - strong, precise */
+    --font-display: 'Manrope', 'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Inter', sans-serif;
+    --font-body: 'Inter', 'SF Pro Text', -apple-system, BlinkMacSystemFont, sans-serif;
+    --font-mono: 'JetBrains Mono', 'SF Mono', 'Fira Code', monospace;
+    --font-numeric: 'SF Pro Display', 'Manrope', 'Inter', monospace;
+
+    /* Type Scale - Harmonious 1.125 Major Third */
+    --text-xs: 0.75rem;    /* 12px */
+    --text-sm: 0.875rem;   /* 14px */
+    --text-base: 1rem;      /* 16px */
+    --text-lg: 1.125rem;    /* 18px */
+    --text-xl: 1.25rem;     /* 20px */
+    --text-2xl: 1.5rem;     /* 24px */
+    --text-3xl: 1.875rem;   /* 30px */
+    --text-4xl: 2.25rem;    /* 36px */
+
+    /* Font Weights */
+    --font-light: 300;
+    --font-normal: 400;
+    --font-medium: 500;
+    --font-semibold: 600;
+    --font-bold: 700;
+
+    /* Line Heights */
+    --leading-tight: 1.25;
+    --leading-normal: 1.5;
+    --leading-relaxed: 1.625;
+
+    /* Letter Spacing */
+    --tracking-tighter: -0.05em;
+    --tracking-tight: -0.025em;
+    --tracking-normal: 0em;
+    --tracking-wide: 0.025em;
+
+    /* === Spacing - 4px Base Grid === */
+    --space-1: 0.25rem;   /* 4px */
+    --space-2: 0.5rem;    /* 8px */
+    --space-3: 0.75rem;   /* 12px */
+    --space-4: 1rem;      /* 16px */
+    --space-5: 1.25rem;   /* 20px */
+    --space-6: 1.5rem;    /* 24px */
+    --space-8: 2rem;      /* 32px */
+    --space-10: 2.5rem;   /* 40px */
+    --space-12: 3rem;     /* 48px */
+    --space-16: 4rem;     /* 64px */
+
+    /* === Border Radius === */
+    --radius-sm: 0.375rem;  /* 6px */
+    --radius-md: 0.5rem;     /* 8px */
+    --radius-lg: 0.625rem;   /* 10px */
+    --radius-xl: 0.75rem;    /* 12px */
+    --radius-2xl: 1rem;      /* 16px */
+    --radius-full: 9999px;
+
+    /* === Animation - Smooth & Professional === */
+    --duration-fast: 150ms;
+    --duration-normal: 200ms;
+    --duration-slow: 300ms;
+
+    --ease-default: cubic-bezier(0.4, 0, 0.2, 1);
+    --ease-out: cubic-bezier(0, 0, 0.2, 1);
+    --ease-in: cubic-bezier(0.4, 0, 1, 1);
+
+    /* === Component Specific === */
+    /* Header */
+    --header-height: 56px;
+    --header-bg: rgba(255, 255, 255, 0.85);
+    --header-border: rgba(17, 24, 39, 0.08);
+
+    /* Sidebar */
+    --sidebar-width: 260px;
+    --sidebar-width-collapsed: 72px;
+    --sidebar-bg: #f9fafb;
+    --sidebar-border: rgba(17, 24, 39, 0.06);
+
+    /* Nav Item */
+    --nav-item-height: 40px;
+    --nav-item-radius: 0.5rem;
+
+    /* Input */
+    --input-height: 40px;
+    --input-bg: #ffffff;
+    --input-border: rgba(17, 24, 39, 0.12);
+    --input-border-focus: rgba(37, 99, 235, 0.5);
+    --input-ring-focus: rgba(37, 99, 235, 0.15);
+
+    /* Button */
+    --btn-height: 40px;
+    --btn-height-sm: 32px;
+    --btn-height-lg: 48px;
+    --btn-radius: 0.5rem;
+
+    /* Card */
+    --card-radius: 0.75rem;
+    --card-padding: 1.25rem;
+  }
+
+  /* === Dark Mode === */
+  .dark {
+    /* Backgrounds */
+    --bg-primary: #030712;
+    --bg-secondary: #0b1120;
+    --bg-tertiary: #111827;
+    --bg-elevated: #111827;
+    --bg-hover: rgba(255, 255, 255, 0.06);
+    --bg-active: rgba(255, 255, 255, 0.08);
+
+    /* Glass */
+    --bg-glass: rgba(11, 17, 32, 0.75);
+    --bg-glass-strong: rgba(11, 17, 32, 0.9);
+
+    /* Foregrounds */
+    --fg-primary: #f9fafb;
+    --fg-secondary: #d1d5db;
+    --fg-muted: #9ca3af;
+    --fg-subtle: #6b7280;
+
+    /* Borders */
+    --border-subtle: rgba(255, 255, 255, 0.08);
+    --border-default: rgba(255, 255, 255, 0.12);
+    --border-strong: rgba(255, 255, 255, 0.18);
+
+    /* Shadows - Softer in dark mode */
+    --shadow-xs: 0 1px 2px 0 rgba(0, 0, 0, 0.4);
+    --shadow-sm: 0 1px 3px 0 rgba(0, 0, 0, 0.5), 0 1px 2px -1px rgba(0, 0, 0, 0.4);
+    --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.5), 0 2px 4px -2px rgba(0, 0, 0, 0.4);
+    --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.5), 0 4px 6px -4px rgba(0, 0, 0, 0.4);
+    --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.5), 0 8px 10px -6px rgba(0, 0, 0, 0.4);
+    --shadow-2xl: 0 25px 50px -12px rgba(0, 0, 0, 0.6);
+
+    /* Component Specific */
+    --header-bg: rgba(3, 7, 18, 0.85);
+    --header-border: rgba(255, 255, 255, 0.08);
+
+    --sidebar-bg: #030712;
+    --sidebar-border: rgba(255, 255, 255, 0.08);
+
+    --input-bg: rgba(17, 24, 39, 0.8);
+    --input-border: rgba(255, 255, 255, 0.12);
+  }
+}
+
+@layer components {
+  /* === Glass Container === */
+  .saas-glass {
+    background: var(--bg-glass);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid var(--border-default);
+  }
+
+  .saas-glass-strong {
+    background: var(--bg-glass-strong);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid var(--border-default);
+  }
+
+  /* === Professional Card === */
+  .saas-card {
+    background: var(--bg-elevated);
+    border: 1px solid var(--border-default);
+    border-radius: var(--card-radius);
+    box-shadow: var(--shadow-sm);
+  }
+
+  .saas-card-hover {
+    transition: all var(--duration-normal) var(--ease-default);
+  }
+
+  .saas-card-hover:hover {
+    transform: translateY(-1px);
+    box-shadow: var(--shadow-md);
+    border-color: var(--border-strong);
+  }
+
+  /* === Professional Button === */
+  .saas-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-2);
+    font-size: var(--text-sm);
+    font-weight: var(--font-medium);
+    line-height: 1;
+    border-radius: var(--btn-radius);
+    transition: all var(--duration-fast) var(--ease-default);
+    cursor: pointer;
+    user-select: none;
+    white-space: nowrap;
+  }
+
+  .saas-btn-primary {
+    background: linear-gradient(135deg, var(--brand-primary-600) 0%, var(--brand-primary-700) 100%);
+    color: var(--fg-on-primary);
+    box-shadow: 0 1px 0 rgba(255, 255, 255, 0.1) inset, var(--shadow-sm);
+  }
+
+  .saas-btn-primary:hover {
+    background: linear-gradient(135deg, var(--brand-primary-500) 0%, var(--brand-primary-600) 100%);
+    transform: translateY(-1px);
+    box-shadow: 0 1px 0 rgba(255, 255, 255, 0.1) inset, var(--shadow-md);
+  }
+
+  .saas-btn-secondary {
+    background: var(--bg-secondary);
+    color: var(--fg-secondary);
+    border: 1px solid var(--border-default);
+  }
+
+  .saas-btn-secondary:hover {
+    background: var(--bg-tertiary);
+    border-color: var(--border-strong);
+    color: var(--fg-primary);
+  }
+
+  .saas-btn-ghost {
+    background: transparent;
+    color: var(--fg-secondary);
+  }
+
+  .saas-btn-ghost:hover {
+    background: var(--bg-hover);
+    color: var(--fg-primary);
+  }
+
+  /* === Professional Input === */
+  .saas-input {
+    width: 100%;
+    height: var(--input-height);
+    background: var(--input-bg);
+    border: 1px solid var(--input-border);
+    border-radius: var(--radius-md);
+    color: var(--fg-primary);
+    font-size: var(--text-sm);
+    padding: 0 var(--space-3);
+    transition: all var(--duration-fast) var(--ease-default);
+    outline: none;
+  }
+
+  .saas-input:focus {
+    border-color: var(--input-border-focus);
+    box-shadow: 0 0 0 4px var(--input-ring-focus);
+  }
+
+  .saas-input::placeholder {
+    color: var(--fg-subtle);
+  }
+
+  /* === Professional Badge === */
+  .saas-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-1);
+    padding: 0.25rem 0.625rem;
+    font-size: var(--text-xs);
+    font-weight: var(--font-medium);
+    border-radius: var(--radius-full);
+    border: 1px solid var(--border-default);
+  }
+
+  .saas-badge-primary {
+    background: rgba(37, 99, 235, 0.1);
+    color: var(--brand-primary);
+    border-color: rgba(37, 99, 235, 0.25);
+  }
+
+  .saas-badge-accent {
+    background: var(--status-warning-bg);
+    color: var(--brand-accent);
+    border-color: rgba(245, 158, 11, 0.3);
+  }
+
+  .saas-badge-success {
+    background: var(--status-success-bg);
+    color: var(--status-success);
+    border-color: rgba(16, 185, 129, 0.3);
+  }
+
+  .saas-badge-danger {
+    background: var(--status-danger-bg);
+    color: var(--status-danger);
+    border-color: rgba(239, 68, 68, 0.3);
+  }
+
+  /* === Nav Item === */
+  .saas-nav-item {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+    height: var(--nav-item-height);
+    padding: 0 var(--space-3);
+    border-radius: var(--nav-item-radius);
+    font-size: var(--text-sm);
+    font-weight: var(--font-medium);
+    color: var(--fg-secondary);
+    transition: all var(--duration-fast) var(--ease-default);
+    cursor: pointer;
+  }
+
+  .saas-nav-item:hover {
+    background: var(--bg-hover);
+    color: var(--fg-primary);
+  }
+
+  .saas-nav-item-active {
+    background: linear-gradient(135deg, rgba(37, 99, 235, 0.12) 0%, rgba(37, 99, 235, 0.06) 100%);
+    color: var(--brand-primary);
+  }
+
+  .saas-nav-item-active:hover {
+    background: linear-gradient(135deg, rgba(37, 99, 235, 0.15) 0%, rgba(37, 99, 235, 0.08) 100%);
+  }
+
+  /* === Section Header === */
+  .saas-section-label {
+    font-size: var(--text-xs);
+    font-weight: var(--font-semibold);
+    text-transform: uppercase;
+    letter-spacing: var(--tracking-wide);
+    color: var(--fg-muted);
+  }
+
+  /* === Divider === */
+  .saas-divider {
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--border-default), transparent);
+  }
+
+  /* === Scrollbar === */
+  .saas-scrollbar::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+
+  .saas-scrollbar::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  .saas-scrollbar::-webkit-scrollbar-thumb {
+    background: var(--border-strong);
+    border-radius: var(--radius-full);
+  }
+
+  .saas-scrollbar::-webkit-scrollbar-thumb:hover {
+    background: var(--fg-muted);
+  }
+
+  /* === Background Pattern === */
+  .saas-bg-grid {
+    background-image:
+      linear-gradient(var(--border-subtle) 1px, transparent 1px),
+      linear-gradient(90deg, var(--border-subtle) 1px, transparent 1px);
+    background-size: 24px 24px;
+  }
+
+  .saas-bg-gradient {
+    background:
+      radial-gradient(ellipse at top, rgba(37, 99, 235, 0.06), transparent 60%),
+      radial-gradient(ellipse at bottom right, rgba(245, 158, 11, 0.04), transparent 50%),
+      var(--bg-primary);
+  }
+
+  /* === Live Indicator === */
+  .saas-dot-live {
+    position: relative;
+    width: 8px;
+    height: 8px;
+    background: var(--status-success);
+    border-radius: var(--radius-full);
+  }
+
+  .saas-dot-live::before {
+    content: '';
+    position: absolute;
+    inset: -4px;
+    background: var(--status-success);
+    border-radius: inherit;
+    animation: saas-ping 1.5s cubic-bezier(0, 0, 0.2, 1) infinite;
+  }
+
+  @keyframes saas-ping {
+    75%, 100% {
+      transform: scale(2);
+      opacity: 0;
+    }
+  }
+
+  /* === Text Gradient === */
+  .saas-text-gradient {
+    background: linear-gradient(135deg, var(--brand-primary) 0%, var(--brand-accent) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* === Brand Glow === */
+  .saas-glow-primary {
+    box-shadow: var(--shadow-glow-primary);
+  }
+
+  .saas-glow-accent {
+    box-shadow: var(--shadow-glow-accent);
+  }
+}
+
+@layer utilities {
+  /* === Numeric Font for Tabular Data === */
+  .saas-text-numeric {
+    font-family: var(--font-numeric);
+    font-variant-numeric: tabular-nums;
+  }
+
+  /* === Truncation === */
+  .saas-truncate {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  /* === Blur Backdrop === */
+  .saas-blur-behind {
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+  }
+
+  /* === Focus Ring === */
+  .saas-focus-ring {
+    outline: none;
+  }
+
+  .saas-focus-ring:focus-visible {
+    box-shadow: 0 0 0 4px var(--input-ring-focus);
+  }
+}

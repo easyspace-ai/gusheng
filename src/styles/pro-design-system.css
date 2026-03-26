@@ -1,0 +1,521 @@
+/**
+ * ReNote Pro Design System
+ * 专业金融工作台设计系统
+ */
+
+@layer base {
+  :root {
+    /* === 专业配色系统 === */
+    /* 深空主色调 */
+    --pro-bg-primary: #050816;
+    --pro-bg-secondary: #070b1f;
+    --pro-bg-tertiary: #0b1229;
+    --pro-bg-elevated: #101733;
+    --pro-bg-glass: rgba(15, 23, 51, 0.7);
+    --pro-bg-glass-strong: rgba(15, 23, 51, 0.9);
+
+    /* 琥珀金（金融专业色） */
+    --pro-accent-amber: #f59e0b;
+    --pro-accent-amber-light: #fbbf24;
+    --pro-accent-amber-dark: #d97706;
+    --pro-accent-amber-glow: rgba(245, 158, 11, 0.3);
+    --pro-accent-amber-bg: rgba(245, 158, 11, 0.1);
+
+    /* 深海蓝（科技色） */
+    --pro-accent-blue: #3b82f6;
+    --pro-accent-blue-light: #60a5fa;
+    --pro-accent-blue-dark: #2563eb;
+    --pro-accent-blue-glow: rgba(59, 130, 246, 0.3);
+    --pro-accent-blue-bg: rgba(59, 130, 246, 0.1);
+
+    /* 翡翠绿（增长/正面） */
+    --pro-success: #10b981;
+    --pro-success-light: #34d399;
+    --pro-success-glow: rgba(16, 185, 129, 0.3);
+    --pro-success-bg: rgba(16, 185, 129, 0.1);
+
+    /* 珊瑚红（下跌/风险） */
+    --pro-danger: #ef4444;
+    --pro-danger-light: #f87171;
+    --pro-danger-glow: rgba(239, 68, 68, 0.3);
+    --pro-danger-bg: rgba(239, 68, 68, 0.1);
+
+    /* 中性色 */
+    --pro-fg-primary: #f8fafc;
+    --pro-fg-secondary: #cbd5e1;
+    --pro-fg-muted: #94a3b8;
+    --pro-fg-subtle: #64748b;
+
+    /* 边框系统 */
+    --pro-border-subtle: rgba(148, 163, 184, 0.1);
+    --pro-border-default: rgba(148, 163, 184, 0.18);
+    --pro-border-strong: rgba(148, 163, 184, 0.3);
+
+    /* 阴影系统 */
+    --pro-shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.4);
+    --pro-shadow-md: 0 4px 12px rgba(0, 0, 0, 0.5);
+    --pro-shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.6);
+    --pro-shadow-xl: 0 20px 60px rgba(0, 0, 0, 0.7);
+    --pro-shadow-glow-amber: 0 0 40px rgba(245, 158, 11, 0.15);
+    --pro-shadow-glow-blue: 0 0 40px rgba(59, 130, 246, 0.15);
+
+    /* === 字体系统 === */
+    /* 使用现代专业字体组合 */
+    --pro-font-display: 'Suisse Intl', 'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Inter', sans-serif;
+    --pro-font-body: 'SF Pro Text', -apple-system, BlinkMacSystemFont, 'Inter', sans-serif;
+    --pro-font-mono: 'JetBrains Mono', 'SF Mono', 'Fira Code', monospace;
+    --pro-font-numeric: 'SF Pro Display', 'Suisse Intl', monospace;
+
+    /* 字体大小 */
+    --pro-text-xs: 0.70rem;
+    --pro-text-sm: 0.78rem;
+    --pro-text-base: 0.86rem;
+    --pro-text-lg: 0.95rem;
+    --pro-text-xl: 1.1rem;
+    --pro-text-2xl: 1.35rem;
+    --pro-text-3xl: 1.7rem;
+
+    /* 字重 */
+    --pro-font-light: 300;
+    --pro-font-normal: 400;
+    --pro-font-medium: 500;
+    --pro-font-semibold: 600;
+    --pro-font-bold: 700;
+
+    /* 行高 */
+    --pro-leading-tight: 1.1;
+    --pro-leading-normal: 1.4;
+    --pro-leading-relaxed: 1.6;
+
+    /* 字间距 */
+    --pro-tracking-tight: -0.02em;
+    --pro-tracking-normal: 0em;
+    --pro-tracking-wide: 0.02em;
+    --pro-tracking-wider: 0.08em;
+
+    /* === 间距系统 === */
+    --pro-space-px: 1px;
+    --pro-space-0: 0px;
+    --pro-space-0.5: 0.125rem;
+    --pro-space-1: 0.25rem;
+    --pro-space-1.5: 0.375rem;
+    --pro-space-2: 0.5rem;
+    --pro-space-2.5: 0.625rem;
+    --pro-space-3: 0.75rem;
+    --pro-space-3.5: 0.875rem;
+    --pro-space-4: 1rem;
+    --pro-space-5: 1.25rem;
+    --pro-space-6: 1.5rem;
+    --pro-space-7: 1.75rem;
+    --pro-space-8: 2rem;
+    --pro-space-9: 2.25rem;
+    --pro-space-10: 2.5rem;
+    --pro-space-11: 2.75rem;
+    --pro-space-12: 3rem;
+    --pro-space-14: 3.5rem;
+    --pro-space-16: 4rem;
+    --pro-space-20: 5rem;
+    --pro-space-24: 6rem;
+
+    /* === 圆角系统 === */
+    --pro-radius-none: 0px;
+    --pro-radius-sm: 0.25rem;
+    --pro-radius-md: 0.375rem;
+    --pro-radius-lg: 0.5rem;
+    --pro-radius-xl: 0.75rem;
+    --pro-radius-2xl: 1rem;
+    --pro-radius-3xl: 1.5rem;
+    --pro-radius-full: 9999px;
+
+    /* === 动画系统 === */
+    --pro-duration-fast: 150ms;
+    --pro-duration-normal: 250ms;
+    --pro-duration-slow: 350ms;
+    --pro-duration-slower: 500ms;
+
+    --pro-ease-default: cubic-bezier(0.4, 0, 0.2, 1);
+    --pro-ease-in: cubic-bezier(0.4, 0, 1, 1);
+    --pro-ease-out: cubic-bezier(0, 0, 0.2, 1);
+    --pro-ease-bounce: cubic-bezier(0.34, 1.56, 0.64, 1);
+    --pro-ease-elastic: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+
+    /* === 玻璃态效果 === */
+    --pro-glass-blur: 20px;
+    --pro-glass-border: rgba(148, 163, 184, 0.18);
+    --pro-glass-bg: rgba(15, 23, 51, 0.7);
+    --pro-glass-bg-strong: rgba(15, 23, 51, 0.9);
+
+    /* === 渐变系统 === */
+    --pro-gradient-amber: linear-gradient(135deg, #f59e0b 0%, #fbbf24 100%);
+    --pro-gradient-blue: linear-gradient(135deg, #3b82f6 0%, #60a5fa 100%);
+    --pro-gradient-success: linear-gradient(135deg, #10b981 0%, #34d399 100%);
+    --pro-gradient-danger: linear-gradient(135deg, #ef4444 0%, #f87171 100%);
+    --pro-gradient-glass: linear-gradient(135deg, rgba(15, 23, 51, 0.8) 0%, rgba(15, 23, 51, 0.6) 100%);
+    --pro-gradient-hero: radial-gradient(ellipse 80% 50% at 50% -20%, rgba(59, 130, 246, 0.15), transparent);
+
+    /* === 组件特定变量 === */
+    /* TopBar */
+    --pro-topbar-height: 44px;
+    --pro-topbar-bg: rgba(7, 11, 31, 0.85);
+    --pro-topbar-border: rgba(148, 163, 184, 0.14);
+
+    /* ActivityBar */
+    --pro-activitybar-width: 52px;
+    --pro-activitybar-bg: rgba(7, 11, 31, 0.75);
+    --pro-activitybar-item-active: linear-gradient(90deg, rgba(245, 158, 11, 0.2) 0%, transparent 100%);
+
+    /* Sidebar */
+    --pro-sidebar-bg: rgba(10, 15, 35, 0.7);
+    --pro-sidebar-border: rgba(148, 163, 184, 0.14);
+
+    /* Tab */
+    --pro-tab-height: 36px;
+    --pro-tab-active-bg: rgba(15, 23, 51, 0.9);
+    --pro-tab-inactive-bg: rgba(15, 23, 51, 0.3);
+    --pro-tab-hover-bg: rgba(15, 23, 51, 0.6);
+
+    /* Button */
+    --pro-btn-primary-bg: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+    --pro-btn-primary-hover: linear-gradient(135deg, #fbbf24 0%, #f59e0b 100%);
+    --pro-btn-secondary-bg: rgba(148, 163, 184, 0.12);
+    --pro-btn-secondary-hover: rgba(148, 163, 184, 0.2);
+
+    /* Input */
+    --pro-input-bg: rgba(15, 23, 51, 0.6);
+    --pro-input-border: rgba(148, 163, 184, 0.2);
+    --pro-input-focus-border: rgba(245, 158, 11, 0.5);
+    --pro-input-focus-ring: rgba(245, 158, 11, 0.25);
+  }
+
+  /* 浅色模式 */
+  html:not(.dark) {
+    --pro-bg-primary: #f8fafc;
+    --pro-bg-secondary: #f1f5f9;
+    --pro-bg-tertiary: #e2e8f0;
+    --pro-bg-elevated: #ffffff;
+    --pro-bg-glass: rgba(255, 255, 255, 0.7);
+    --pro-bg-glass-strong: rgba(255, 255, 255, 0.9);
+
+    --pro-fg-primary: #0f172a;
+    --pro-fg-secondary: #334155;
+    --pro-fg-muted: #64748b;
+    --pro-fg-subtle: #94a3b8;
+
+    --pro-border-subtle: rgba(148, 163, 184, 0.2);
+    --pro-border-default: rgba(148, 163, 184, 0.35);
+    --pro-border-strong: rgba(148, 163, 184, 0.5);
+
+    --pro-shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+    --pro-shadow-md: 0 4px 12px rgba(0, 0, 0, 0.08);
+    --pro-shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.12);
+    --pro-shadow-xl: 0 20px 60px rgba(0, 0, 0, 0.15);
+
+    --pro-topbar-bg: rgba(248, 250, 252, 0.85);
+    --pro-activitybar-bg: rgba(248, 250, 252, 0.75);
+    --pro-sidebar-bg: rgba(241, 245, 249, 0.7);
+
+    --pro-input-bg: rgba(255, 255, 255, 0.8);
+    --pro-input-border: rgba(148, 163, 184, 0.3);
+  }
+}
+
+@layer components {
+  /* === 玻璃态容器 === */
+  .pro-glass {
+    background: var(--pro-bg-glass);
+    backdrop-filter: blur(var(--pro-glass-blur));
+    -webkit-backdrop-filter: blur(var(--pro-glass-blur));
+    border: 1px solid var(--pro-glass-border);
+  }
+
+  .pro-glass-strong {
+    background: var(--pro-bg-glass-strong);
+    backdrop-filter: blur(var(--pro-glass-blur));
+    -webkit-backdrop-filter: blur(var(--pro-glass-blur));
+    border: 1px solid var(--pro-glass-border);
+  }
+
+  /* === 渐变边框 === */
+  .pro-gradient-border {
+    position: relative;
+  }
+
+  .pro-gradient-border::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    padding: 1px;
+    background: linear-gradient(135deg, rgba(245, 158, 11, 0.5), rgba(59, 130, 246, 0.5), transparent);
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    pointer-events: none;
+  }
+
+  /* === 发光效果 === */
+  .pro-glow-amber {
+    box-shadow: var(--pro-shadow-glow-amber);
+  }
+
+  .pro-glow-blue {
+    box-shadow: var(--pro-shadow-glow-blue);
+  }
+
+  /* === 微动画 === */
+  .pro-float {
+    animation: pro-float 6s ease-in-out infinite;
+  }
+
+  @keyframes pro-float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-8px); }
+  }
+
+  .pro-pulse-glow {
+    animation: pro-pulse-glow 3s ease-in-out infinite;
+  }
+
+  @keyframes pro-pulse-glow {
+    0%, 100% { box-shadow: 0 0 20px rgba(245, 158, 11, 0.2); }
+    50% { box-shadow: 0 0 40px rgba(245, 158, 11, 0.4); }
+  }
+
+  /* === 专业滚动条 === */
+  .pro-scrollbar::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+
+  .pro-scrollbar::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  .pro-scrollbar::-webkit-scrollbar-thumb {
+    background: rgba(148, 163, 184, 0.3);
+    border-radius: var(--pro-radius-full);
+  }
+
+  .pro-scrollbar::-webkit-scrollbar-thumb:hover {
+    background: rgba(148, 163, 184, 0.5);
+  }
+
+  /* === 专业文本选择 === */
+  .pro-selection::selection {
+    background: var(--pro-accent-amber-bg);
+    color: var(--pro-accent-amber-light);
+  }
+
+  /* === 背景装饰 === */
+  .pro-bg-grid {
+    background-image:
+      linear-gradient(rgba(148, 163, 184, 0.03) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(148, 163, 184, 0.03) 1px, transparent 1px);
+    background-size: 24px 24px;
+  }
+
+  .pro-bg-radial {
+    background: radial-gradient(ellipse at top, rgba(59, 130, 246, 0.08), transparent 60%),
+                radial-gradient(ellipse at bottom right, rgba(245, 158, 11, 0.06), transparent 50%),
+                var(--pro-bg-primary);
+  }
+
+  /* === 专业按钮 === */
+  .pro-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--pro-space-2);
+    font-size: var(--pro-text-sm);
+    font-weight: var(--pro-font-medium);
+    line-height: var(--pro-leading-tight);
+    border-radius: var(--pro-radius-md);
+    transition: all var(--pro-duration-fast) var(--pro-ease-default);
+    cursor: pointer;
+    user-select: none;
+    white-space: nowrap;
+  }
+
+  .pro-btn-primary {
+    background: var(--pro-btn-primary-bg);
+    color: #0f172a;
+    box-shadow: 0 1px 0 rgba(255, 255, 255, 0.1) inset, var(--pro-shadow-md);
+  }
+
+  .pro-btn-primary:hover {
+    background: var(--pro-btn-primary-hover);
+    transform: translateY(-1px);
+    box-shadow: 0 1px 0 rgba(255, 255, 255, 0.1) inset, var(--pro-shadow-lg);
+  }
+
+  .pro-btn-secondary {
+    background: var(--pro-btn-secondary-bg);
+    color: var(--pro-fg-secondary);
+    border: 1px solid var(--pro-border-default);
+  }
+
+  .pro-btn-secondary:hover {
+    background: var(--pro-btn-secondary-hover);
+    border-color: var(--pro-border-strong);
+    color: var(--pro-fg-primary);
+  }
+
+  .pro-btn-ghost {
+    background: transparent;
+    color: var(--pro-fg-secondary);
+  }
+
+  .pro-btn-ghost:hover {
+    background: rgba(148, 163, 184, 0.1);
+    color: var(--pro-fg-primary);
+  }
+
+  /* === 专业卡片 === */
+  .pro-card {
+    background: var(--pro-bg-elevated);
+    border: 1px solid var(--pro-border-default);
+    border-radius: var(--pro-radius-xl);
+    box-shadow: var(--pro-shadow-md);
+  }
+
+  .pro-card-hover {
+    transition: all var(--pro-duration-normal) var(--pro-ease-default);
+  }
+
+  .pro-card-hover:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--pro-shadow-lg);
+    border-color: var(--pro-border-strong);
+  }
+
+  /* === 专业输入框 === */
+  .pro-input {
+    width: 100%;
+    background: var(--pro-input-bg);
+    border: 1px solid var(--pro-input-border);
+    border-radius: var(--pro-radius-md);
+    color: var(--pro-fg-primary);
+    font-size: var(--pro-text-sm);
+    padding: var(--pro-space-2) var(--pro-space-3);
+    transition: all var(--pro-duration-fast) var(--pro-ease-default);
+    outline: none;
+  }
+
+  .pro-input:focus {
+    border-color: var(--pro-input-focus-border);
+    box-shadow: 0 0 0 3px var(--pro-input-focus-ring);
+  }
+
+  .pro-input::placeholder {
+    color: var(--pro-fg-subtle);
+  }
+
+  /* === 专业标签 === */
+  .pro-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--pro-space-1);
+    padding: var(--pro-space-0.5) var(--pro-space-2);
+    font-size: var(--pro-text-xs);
+    font-weight: var(--pro-font-medium);
+    border-radius: var(--pro-radius-full);
+    border: 1px solid var(--pro-border-default);
+  }
+
+  .pro-badge-amber {
+    background: var(--pro-accent-amber-bg);
+    color: var(--pro-accent-amber-light);
+    border-color: rgba(245, 158, 11, 0.3);
+  }
+
+  .pro-badge-blue {
+    background: var(--pro-accent-blue-bg);
+    color: var(--pro-accent-blue-light);
+    border-color: rgba(59, 130, 246, 0.3);
+  }
+
+  .pro-badge-success {
+    background: var(--pro-success-bg);
+    color: var(--pro-success-light);
+    border-color: rgba(16, 185, 129, 0.3);
+  }
+
+  .pro-badge-danger {
+    background: var(--pro-danger-bg);
+    color: var(--pro-danger-light);
+    border-color: rgba(239, 68, 68, 0.3);
+  }
+
+  /* === 专业分隔线 === */
+  .pro-divider {
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--pro-border-default), transparent);
+  }
+
+  /* === 活动指示器 === */
+  .pro-dot-live {
+    position: relative;
+    width: 8px;
+    height: 8px;
+    background: var(--pro-success);
+    border-radius: var(--pro-radius-full);
+  }
+
+  .pro-dot-live::before {
+    content: '';
+    position: absolute;
+    inset: -4px;
+    background: var(--pro-success);
+    border-radius: inherit;
+    animation: pro-ping 1.5s cubic-bezier(0, 0, 0.2, 1) infinite;
+  }
+
+  @keyframes pro-ping {
+    75%, 100% {
+      transform: scale(2);
+      opacity: 0;
+    }
+  }
+}
+
+@layer utilities {
+  /* === 文本渐变 === */
+  .pro-text-gradient-amber {
+    background: var(--pro-gradient-amber);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .pro-text-gradient-blue {
+    background: var(--pro-gradient-blue);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* === 排版工具 === */
+  .pro-text-numeric {
+    font-family: var(--pro-font-numeric);
+    font-variant-numeric: tabular-nums;
+  }
+
+  /* === 模糊背景 === */
+  .pro-blur-behind {
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+  }
+
+  /* === 内容隐藏但可访问 === */
+  .pro-sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+  }
+}

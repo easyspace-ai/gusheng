@@ -97,11 +97,11 @@ const MENU_ITEMS: MenuItem[] = [
   { id: 'money-flow', label: '个股资金流向', description: '排行与趋势', icon: TrendingUp },
   { id: 'long-tiger', label: '龙虎榜', description: '上榜原因与净买额', icon: Flame },
   { id: 'stock-research', label: '个股研报', description: '券商个股覆盖', icon: BookOpen },
-  { id: 'stock-notice', label: '公司公告', description: '公告与事项跟踪', icon: Bell },
-  { id: 'industry-research', label: '行业研究', description: '板块研报聚合', icon: Building2 },
-  { id: 'hot', label: '当前热门', description: '热门股 / 事件 / 话题', icon: Sparkles },
-  { id: 'screeners', label: '指标选股', description: '预留筛选模块', icon: Sigma },
-  { id: 'links', label: '名站优选', description: '预留资讯入口', icon: LayoutGrid },
+  { id: 'stock-notice', label: '公司公告', description: '公告与事项跟踪', icon: Bell }
+  // { id: 'industry-research', label: '行业研究', description: '板块研报聚合', icon: Building2 },
+  // { id: 'hot', label: '当前热门', description: '热门股 / 事件 / 话题', icon: Sparkles },
+  // { id: 'screeners', label: '指标选股', description: '预留筛选模块', icon: Sigma },
+  // { id: 'links', label: '名站优选', description: '预留资讯入口', icon: LayoutGrid },
 ]
 
 const MAJOR_INDEX_OPTIONS = [

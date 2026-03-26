@@ -12,6 +12,7 @@ import {
   Save,
   Search,
   ShieldCheck,
+  Sparkles,
   Trash2,
   Workflow,
   Target,

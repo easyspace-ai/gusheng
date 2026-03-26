@@ -1,0 +1,9 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npx tsc:*)",
+      "Bash(pkill -f \"go run cmd/server/main.go\")",
+      "Bash(go run:*)"
+    ]
+  }
+}

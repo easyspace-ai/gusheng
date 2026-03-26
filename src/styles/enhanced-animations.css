@@ -1,0 +1,290 @@
+/* Enhanced animations for the refactored UI */
+
+/* Smooth transitions for all interactive elements */
+* {
+  transition-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+/* File tree animations */
+.file-tree-item {
+  transition: all 0.2s ease-out;
+}
+
+.file-tree-item:hover {
+  transform: translateX(2px);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.file-tree-item.selected {
+  background: linear-gradient(90deg, #eff6ff 0%, #dbeafe 100%);
+  border-left: 3px solid #3b82f6;
+}
+
+.file-tree-item.dragging {
+  transform: rotate(2deg) scale(1.02);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+  z-index: 1000;
+}
+
+/* Folder expand/collapse animations */
+.folder-content {
+  overflow: hidden;
+  transition: height 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.folder-chevron {
+  transition: transform 0.2s ease-out;
+}
+
+.folder-chevron.expanded {
+  transform: rotate(90deg);
+}
+
+/* Tab animations */
+.tab-item {
+  transition: all 0.2s ease-out;
+}
+
+.tab-item:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.tab-item.active {
+  background: white;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  border-bottom: 2px solid #3b82f6;
+}
+
+.tab-item.dragging {
+  transform: rotate(2deg) scale(1.05);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  z-index: 1000;
+}
+
+/* Editor mode transition */
+.editor-content {
+  transition: opacity 0.2s ease-out;
+}
+
+.editor-mode-enter {
+  opacity: 0;
+  transform: translateY(10px) scale(0.98);
+}
+
+.editor-mode-enter-active {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  transition: all 0.2s ease-out;
+}
+
+.editor-mode-exit {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+.editor-mode-exit-active {
+  opacity: 0;
+  transform: translateY(-10px) scale(0.98);
+  transition: all 0.2s ease-out;
+}
+
+/* Sidebar animations */
+.sidebar-panel {
+  transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.sidebar-panel.collapsed {
+  width: 60px;
+}
+
+.sidebar-panel.expanded {
+  width: 280px;
+}
+
+.sidebar-tab {
+  transition: all 0.15s ease-out;
+}
+
+.sidebar-tab:hover {
+  transform: translateY(-1px) scale(1.02);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.sidebar-tab.active {
+  background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
+  color: white;
+  box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
+}
+
+/* Drop zone animations */
+.drop-zone {
+  background: linear-gradient(45deg, rgba(59, 130, 246, 0.1) 25%, transparent 25%),
+              linear-gradient(-45deg, rgba(59, 130, 246, 0.1) 25%, transparent 25%),
+              linear-gradient(45deg, transparent 75%, rgba(59, 130, 246, 0.1) 75%),
+              linear-gradient(-45deg, transparent 75%, rgba(59, 130, 246, 0.1) 75%);
+  background-size: 20px 20px;
+  background-position: 0 0, 0 10px, 10px -10px, -10px 0px;
+  animation: dropZoneShimmer 2s linear infinite;
+  border: 2px dashed #3b82f6;
+  border-radius: 8px;
+}
+
+@keyframes dropZoneShimmer {
+  0% { background-position: 0 0, 0 10px, 10px -10px, -10px 0px; }
+  100% { background-position: 20px 20px, 20px 30px, 30px 10px, 10px 20px; }
+}
+
+/* Smooth scrollbars */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f5f9;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 4px;
+  transition: background 0.2s ease-out;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
+
+/* Loading animations */
+.loading-spinner {
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.loading-dots::after {
+  content: '';
+  animation: loadingDots 1.4s infinite;
+}
+
+@keyframes loadingDots {
+  0%, 80%, 100% { opacity: 0; }
+  40% { opacity: 1; }
+}
+
+/* Pulse animation for active elements */
+.pulse {
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
+/* Floating animation for tooltips */
+.float {
+  animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-5px); }
+  100% { transform: translateY(0px); }
+}
+
+/* Slide animations for panels */
+.slide-in-left {
+  animation: slideInLeft 0.3s ease-out;
+}
+
+@keyframes slideInLeft {
+  from {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+.slide-in-right {
+  animation: slideInRight 0.3s ease-out;
+}
+
+@keyframes slideInRight {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+/* Focus states */
+.focus-ring {
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.5);
+  border-radius: 4px;
+}
+
+/* Glass morphism effect for panels */
+.glass {
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* Ripple effect for buttons */
+.ripple {
+  position: relative;
+  overflow: hidden;
+}
+
+.ripple::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.3);
+  transform: translate(-50%, -50%);
+  transition: width 0.3s, height 0.3s;
+}
+
+.ripple:active::before {
+  width: 200px;
+  height: 200px;
+}
+
+/* Smooth color transitions */
+.color-transition {
+  transition: color 0.2s ease-out, background-color 0.2s ease-out, border-color 0.2s ease-out;
+}
+
+/* Shadow transitions */
+.shadow-transition {
+  transition: box-shadow 0.2s ease-out;
+}
+
+/* Scale transitions for interactive elements */
+.scale-transition {
+  transition: transform 0.15s ease-out;
+}
+
+.scale-transition:hover {
+  transform: scale(1.02);
+}
+
+.scale-transition:active {
+  transform: scale(0.98);
+}

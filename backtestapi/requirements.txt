@@ -1,0 +1,15 @@
+fastapi
+uvicorn
+sqlalchemy
+pydantic
+pandas
+requests
+akshare
+baostock
+stockstats
+
+# vn.py is the intended backtesting engine dependency.
+# Install it explicitly when you are ready to wire the runtime engine:
+vnpy
+vnpy_ctastrategy
+vnpy_ctabacktester

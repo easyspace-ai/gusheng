@@ -1,0 +1,35 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "backtestapi"
+version = "0.1.0"
+description = "BacktestAPI: A-share strategy backtesting service powered by vn.py"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "fastapi>=0.116.1",
+    "uvicorn>=0.35.0",
+    "sqlalchemy>=2.0.48",
+    "pydantic>=2.11.0",
+    "pandas>=2.3.0",
+    "requests>=2.32.4",
+    "akshare>=1.16.80",
+    "baostock>=0.8.9",
+    "stockstats>=0.6.5",
+    "vnpy>=4.0.0",
+    "vnpy_ctastrategy>=1.0.0",
+    "vnpy_ctabacktester>=1.0.0",
+]
+
+[project.scripts]
+backtestapi-api = "api.main:run"
+
+[tool.setuptools.packages.find]
+include = ["api*", "core*", "workers*"]
+
+[dependency-groups]
+dev = [
+    "pytest>=9.0.2",
+]

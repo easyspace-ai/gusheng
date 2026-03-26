@@ -1,0 +1,131 @@
+/* Calculator Plugin Styles */
+.calculator-panel {
+  background: var(--background);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 16px;
+  min-width: 240px;
+}
+
+.calculator-display {
+  background: var(--input-background);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  padding: 12px;
+  text-align: right;
+  font-family: 'Courier New', monospace;
+  font-size: 18px;
+  color: var(--text);
+  margin-bottom: 16px;
+  min-height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.calculator-buttons {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 8px;
+}
+
+.calculator-button {
+  background: var(--button-background);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  padding: 12px;
+  font-size: 16px;
+  font-weight: 500;
+  color: var(--text);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  min-height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.calculator-button:hover {
+  background: var(--button-hover);
+  border-color: var(--accent);
+}
+
+.calculator-button:active {
+  transform: translateY(1px);
+}
+
+.calculator-button.number {
+  background: var(--secondary-background);
+}
+
+.calculator-button.operator {
+  background: var(--accent);
+  color: white;
+}
+
+.calculator-button.operator:hover {
+  background: var(--accent-hover);
+}
+
+.calculator-button.clear {
+  background: var(--error);
+  color: white;
+}
+
+.calculator-button.clear:hover {
+  background: var(--error-hover);
+}
+
+.calculator-button.equals {
+  background: var(--success);
+  color: white;
+}
+
+.calculator-button.equals:hover {
+  background: var(--success-hover);
+}
+
+.calculator-button.span-2 {
+  grid-column: span 2;
+}
+
+.calculator-history {
+  margin-top: 16px;
+  padding-top: 16px;
+  border-top: 1px solid var(--border);
+}
+
+.calculator-history h4 {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-secondary);
+  margin-bottom: 8px;
+}
+
+.calculator-history-list {
+  max-height: 120px;
+  overflow-y: auto;
+  font-size: 12px;
+  color: var(--text-secondary);
+}
+
+.calculator-history-item {
+  padding: 4px 0;
+  border-bottom: 1px solid var(--border-light);
+  font-family: 'Courier New', monospace;
+}
+
+.calculator-history-item:last-child {
+  border-bottom: none;
+}
+
+/* Dark mode adjustments */
+@media (prefers-color-scheme: dark) {
+  .calculator-button {
+    border-color: var(--border-dark);
+  }
+  
+  .calculator-button:hover {
+    border-color: var(--accent-dark);
+  }
+}

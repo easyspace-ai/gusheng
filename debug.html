@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>调试页面</title>
+</head>
+<body>
+    <h1>调试页面</h1>
+    <p>这是一个简单的调试页面，用于测试基础功能。</p>
+    <button id="testBtn">点击测试</button>
+    
+    <div id="log"></div>
+    
+    <script>
+        const log = document.getElementById('log');
+        function addLog(message) {
+            const p = document.createElement('p');
+            p.textContent = new Date().toLocaleTimeString() + ': ' + message;
+            log.appendChild(p);
+            console.log(message);
+        }
+        
+        addLog('页面加载完成');
+        
+        document.getElementById('testBtn').addEventListener('click', function() {
+            addLog('按钮点击成功！');
+            alert('测试成功！');
+        });
+        
+        // 测试一些可能导致崩溃的操作
+        try {
+            localStorage.setItem('test', 'value');
+            addLog('localStorage 测试成功');
+        } catch (e) {
+            addLog('localStorage 错误: ' + e.message);
+        }
+        
+        try {
+            fetch('/').then(() => addLog('fetch 测试成功')).catch(e => addLog('fetch 错误: ' + e.message));
+        } catch (e) {
+            addLog('fetch 错误: ' + e.message);
+        }
+    </script>
+</body>
+</html>

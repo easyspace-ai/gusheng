@@ -1,0 +1,81 @@
+{
+  "id": "todo-list",
+  "name": "Todo List Plugin",
+  "description": "A comprehensive todo list plugin that helps you manage tasks directly within your workspace",
+  "version": "1.2.0",
+  "author": "ReNote Community",
+  "homepage": "https://github.com/renote/todo-plugin",
+  "repository": "https://github.com/renote/todo-plugin",
+  "license": "MIT",
+  "tags": ["todo", "tasks", "productivity", "gtd"],
+  "main": "index.js",
+  "assets": ["todo.css", "icons.svg"],
+  "minAppVersion": "1.0.0",
+  "permissions": [
+    "workspace:read",
+    "workspace:write", 
+    "ui:menu",
+    "ui:panel",
+    "ui:notifications"
+  ],
+  "config": {
+    "defaultPriority": "medium",
+    "showCompleted": true,
+    "autoArchive": false,
+    "syncInterval": 300000,
+    "position": "left"
+  },
+  "commands": [
+    {
+      "id": "show-todo-list",
+      "name": "Show Todo List",
+      "callback": "showTodoList",
+      "hotkey": "Ctrl+Shift+T"
+    },
+    {
+      "id": "create-todo",
+      "name": "Create New Todo",
+      "callback": "createTodo",
+      "hotkey": "Ctrl+Shift+N"
+    },
+    {
+      "id": "toggle-todo-complete",
+      "name": "Toggle Todo Complete",
+      "callback": "toggleComplete",
+      "hotkey": "Ctrl+Shift+X"
+    },
+    {
+      "id": "insert-todo-list",
+      "name": "Insert Todo List in Document",
+      "callback": "insertTodoList"
+    }
+  ],
+  "menus": [
+    {
+      "id": "todo-main-menu",
+      "label": "Todo List",
+      "icon": "check-square",
+      "parent": "tools",
+      "action": "show-todo-list"
+    },
+    {
+      "id": "create-todo-menu",
+      "label": "New Todo",
+      "icon": "plus-square",
+      "parent": "file",
+      "action": "create-todo"
+    },
+    {
+      "id": "insert-todos-menu",
+      "label": "Insert Todo List",
+      "icon": "list",
+      "parent": "insert",
+      "action": "insert-todo-list"
+    }
+  ],
+  "hooks": {
+    "onFileOpen": "scanForTodos",
+    "onFileModify": "updateTodosFromFile",
+    "onLoad": "loadTodos"
+  }
+}

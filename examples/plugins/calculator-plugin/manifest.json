@@ -1,0 +1,68 @@
+{
+  "id": "calculator",
+  "name": "Calculator Plugin",
+  "description": "A simple calculator plugin that adds mathematical calculation capabilities to your workspace",
+  "version": "1.0.0",
+  "author": "ReNote Team",
+  "homepage": "https://github.com/renote/calculator-plugin",
+  "repository": "https://github.com/renote/calculator-plugin",
+  "license": "MIT",
+  "tags": ["calculator", "math", "utility"],
+  "main": "index.js",
+  "assets": ["calculator.css"],
+  "minAppVersion": "1.0.0",
+  "permissions": [
+    "workspace:read",
+    "workspace:write",
+    "ui:menu",
+    "ui:panel"
+  ],
+  "config": {
+    "precision": 6,
+    "showHistory": true,
+    "position": "right"
+  },
+  "commands": [
+    {
+      "id": "open-calculator",
+      "name": "Open Calculator",
+      "callback": "openCalculator",
+      "hotkey": "Ctrl+Shift+C"
+    },
+    {
+      "id": "insert-calculation",
+      "name": "Insert Calculation Result",
+      "callback": "insertCalculation",
+      "hotkey": "Ctrl+Shift+="
+    }
+  ],
+  "menus": [
+    {
+      "id": "calculator-menu",
+      "label": "Calculator",
+      "icon": "calculator",
+      "parent": "tools",
+      "action": "open-calculator"
+    },
+    {
+      "id": "insert-calc-menu",
+      "label": "Insert Calculation",
+      "icon": "plus",
+      "parent": "edit",
+      "action": "insert-calculation"
+    }
+  ],
+  "panels": [
+    {
+      "id": "calculator-panel",
+      "title": "Calculator",
+      "icon": "calculator",
+      "position": "right",
+      "content": "calculator-component"
+    }
+  ],
+  "hooks": {
+    "onSelectionChange": "handleSelectionChange",
+    "onEditorChange": "handleEditorChange"
+  }
+}
